@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+
+<!--    <bean id="userDao" class="config.TestDao" init-method="initMethod" destroy-method="destroyMethod"/>-->
+<!--    <bean id="beanFactoryPostProcessor" class="service.beanpostprocessor.MyBeanFactoryPostProcessor"/>-->
+<!--    <bean id="beanPostProcessor" class="service.beanpostprocessor.MyBeanPostProcessor"/>-->
+
+<!--    <bean id="awareService" class="config.AwareService"/>-->
+
+<!--    <bean name="userService" id="userService" class="config.TestService">-->
+<!--        <property name="string" value="10001"/>-->
+<!--        <property name="name" value="jijdy"/>-->
+<!--        <property name="testDao" ref="userDao"/>-->
+<!--    </bean>-->
+
+    <bean id="userService1" class="service.FactoryBean.UserService" scope="prototype">
+        <property name="id" value="1001"/>
+        <property name="name" value="test"/>
+        <property name="userDao" ref="proxyBean"/>
+    </bean>
+
+    <bean id="proxyBean" class="service.FactoryBean.ProxyBeanFactory"/>
+</beans>
